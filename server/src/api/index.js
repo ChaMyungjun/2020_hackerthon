@@ -1,9 +1,14 @@
 import Router from 'koa-router'
+import client from './client.js'
 
 const api = new Router();
 
-api.get('/', ctx => {
-    ctx.body = 'routing testing'
+const URL = process.env.URL;
+console.log(URL)
+
+api.get ('/', async ctx => {
+    const data = await client.get(`${URL}?API_KEY=${process.env.serviceKey}/TYPE=json`)
+    console.log(data)
 })
 
 export default api
