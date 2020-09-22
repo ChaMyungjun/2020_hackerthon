@@ -157,7 +157,7 @@ export default function Album() {
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Secondary action
+                    1
                   </Button>
                 </Grid>
               </Grid>
@@ -177,7 +177,7 @@ export default function Album() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      <center>Heading</center>
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe
@@ -186,10 +186,7 @@ export default function Album() {
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      Show
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
+                      Show More
                     </Button>
                   </CardActions>
                 </Card>
@@ -207,8 +204,7 @@ export default function Album() {
           variant="subtitle1"
           align="center"
           color="textSecondary"
-          component="p"
-        >
+          component="p">
           Have a nice cooking time with this website!
         </Typography>
         <Copyright />
@@ -218,4 +214,3 @@ export default function Album() {
   );
 }
 
-export default App;
