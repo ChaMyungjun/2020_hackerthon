@@ -17,7 +17,7 @@ api.get("/", async ctx => {
   };
 
   const data = await client.get(
-    `211.237.50.150:7080/openapi/{process.env.serviceKey}/json/Grid_20150827000000000227_1/1/10/ `
+    `211.237.50.150:7080/openapi/{process.env.serviceKey}/json/Grid_20150827s000000000227_1/1/10/ `
   );
 
   const xmlTojson = convert.xml2json(data.data, { compact: true, spaces: 4 });
