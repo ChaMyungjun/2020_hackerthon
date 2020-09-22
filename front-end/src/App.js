@@ -217,3 +217,5 @@ export default function Album() {
     </React.Fragment>
   );
 }
+
+export default App;
