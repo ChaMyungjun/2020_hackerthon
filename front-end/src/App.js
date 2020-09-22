@@ -7,8 +7,8 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Main />
         <Appbar />
+        <Main />
         <Footer />
       </React.Fragment>
     );

@@ -5,39 +5,18 @@ import {
   Typography,
   InputBase,
   fade,
-  makeStyles
+  makeStyles,
+  Grow
 } from "@material-ui/core";
-import { LocalDiningOutlinedIcon, SearchIcon } from "@material-ui/icons";
+import SearchIcon from "@material-ui/icons/Search";
+import LocalDiningIcon from "@material-ui/icons/LocalDining";
 
 const useStyles = makeStyles(theme => ({
+  root : {
+    flexGrow: 1 
+  },
   icon: {
     marginRight: theme.spacing(2)
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column"
-  },
-  cardMedia: {
-    paddingTop: "56.25%" // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
   },
   search: {
     position: "relative",
@@ -82,29 +61,31 @@ const useStyles = makeStyles(theme => ({
 
 class appBar extends React.Component {
   render() {
-    const classes = this.useStyles();
+    const classes = this.props;
     return (
-      <AppBar position="relative">
-        <Toolbar>
-          <LocalDiningOutlinedIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Home
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <LocalDiningIcon className={classes.icon} />
+            <Typography variant="h6" color="inherit" noWrap>
+              Home
+            </Typography>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput
+                }}
+                inputProps={{ "aria-label": "search" }}
+              />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
+      </div>
     );
   }
 }

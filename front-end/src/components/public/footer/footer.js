@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, fade, makeStyles } from "@material-ui/core";
+import { Typography, fade, makeStyles, Link } from "@material-ui/core";
 
 function Copyright() {
   return (
@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
 
 class footer extends React.Component {
   render() {
-    const classes = this.useStyles();
+    const classes = this.props;
     return (
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>

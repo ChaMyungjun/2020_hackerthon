@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => ({
 
 class main extends React.Component {
   render() {
-    const classes = this.useStyles();
+    const classes = this.props;
     const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     return (
       <React.Fragment>
@@ -164,5 +164,4 @@ class main extends React.Component {
     );
   }
 }
-
 export default main;
