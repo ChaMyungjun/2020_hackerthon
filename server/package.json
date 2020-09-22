@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node dotenv/config src/index.js",
-    "dev": "nodemon --watch src src/index.js"
+    "dev": "nodemon --watch dotenv/config src src/index.js"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",

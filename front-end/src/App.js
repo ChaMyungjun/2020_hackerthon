@@ -1,12 +1,14 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
-function App() {
-  return (
-    <Button variant="contained" color="primary">
-      Hello World
-    </Button>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Typography>Testing</Typography>
+      </div>
+    );
+  }
 }
 
 export default App;

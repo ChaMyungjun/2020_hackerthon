@@ -8,9 +8,10 @@ console.log(URL);
 
 api.get("/", async ctx => {
   const data = await client.get(
-    `${URL}?API_KEY=${process.env.serviceKey}&type=json`
+    `${URL}?API_KEY=${process.env.serviceKey}/TYPE=json`
   );
-  console.log(data.data.row);
+
+  console.log(data.data)
 });
 
 export default api;
