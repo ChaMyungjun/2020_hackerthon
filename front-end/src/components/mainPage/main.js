@@ -10,52 +10,55 @@ import {
   CardContent,
   fade,
   makeStyles,
-  CssBaseline
+  CssBaseline,
 } from "@material-ui/core";
+import Appbar from "../public/Appbar/AppBar";
+import Footer from "../public/footer/footer";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    paddingTop: '12rem',
+    padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
-    marginTop: theme.spacing(4)
+    marginTop: theme.spacing(4),
   },
   cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(8),
   },
   card: {
     height: "100%",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   cardMedia: {
-    paddingTop: "56.25%" // 16:9
+    paddingTop: "56.25%", // 16:9
   },
   cardContent: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
+    padding: theme.spacing(6),
   },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: "auto"
-    }
+      width: "auto",
+    },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -64,10 +67,10 @@ const useStyles = makeStyles(theme => ({
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   inputRoot: {
-    color: "inherit"
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -78,10 +81,10 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       width: "12ch",
       "&:focus": {
-        width: "20ch"
-      }
-    }
-  }
+        width: "20ch",
+      },
+    },
+  },
 }));
 
 class main extends React.Component {
@@ -91,6 +94,7 @@ class main extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
+        <Appbar />
         <main>
           {/* Hero unit */}
           <div className={classes.heroContent}>
@@ -105,12 +109,15 @@ class main extends React.Component {
                 Recipe Master
               </Typography>
               <Typography
-                variant="h5"
+                component="h1"
+                variant="body"
                 align="center"
                 color="textSecondary"
-                paragraph
-              ></Typography>
-              <div className={classes.heroButtons}>
+                gutterBottom
+              >
+                choose one recipe
+              </Typography>
+              {/* <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
                   <Grid item>
                     <Button variant="contained" color="primary">
@@ -123,13 +130,13 @@ class main extends React.Component {
                     </Button>
                   </Grid>
                 </Grid>
-              </div>
+              </div> */}
             </Container>
           </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              {cards.map(card => (
+              {cards.map((card) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
                     <CardMedia
@@ -160,6 +167,7 @@ class main extends React.Component {
             </Grid>
           </Container>
         </main>
+        <Footer />
       </React.Fragment>
     );
   }
