@@ -153,10 +153,9 @@ class Foodinfo extends React.Component {
                     <CardMedia
                       className={classes.cardMedia}
                       component="img"
-                      alt="recipe img"
                       height="140"
                       image={img[i]}
-                      title="Image title"
+                      title={name[i]}
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
