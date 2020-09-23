@@ -93,7 +93,12 @@ class Foodinfo extends React.Component {
     img: [],
     name: [],
     summary: [],
+    number: ""
   };
+
+  handleChange = (e) => {
+    console.log(e.target.value)
+  }
 
   async componentDidMount() {
     const _data = await info();
@@ -160,7 +165,13 @@ class Foodinfo extends React.Component {
                       <Typography>{smry[i]}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button href = "/recipe" size="small" color="primary" key={i}>
+                      <Button
+                        type = "button"
+                        href="/recipe"
+                        size="small"
+                        color="primary"
+                        onChange = {(e) => this.handleChange(e)}
+                      >
                         Show
                       </Button>
                       <Button size="small" color="primary">
