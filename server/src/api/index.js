@@ -22,7 +22,7 @@ api.get("/info", async (ctx) => {
   };
 
   const data = await client.get(
-    `http://211.237.50.150:7080/openapi/${process.env.serviceKey}/json/Grid_20150827000000000226_1/1/10/`
+    `http://211.237.50.150:7080/openapi/${process.env.serviceKey}/json/Grid_20150827000000000226_1/1/9/`
   );
 
   const items = data.data.Grid_20150827000000000226_1.row;
@@ -34,6 +34,8 @@ api.get("/info", async (ctx) => {
     info.img[keys] = items[keys].IMG_URL;
     info.sensitive_imge[keys] = items[keys].DET_URL;
   }
+
+  console.log(info)
 
   ctx.body = info;
   return info;

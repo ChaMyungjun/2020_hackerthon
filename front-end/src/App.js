@@ -1,14 +1,15 @@
 import { AppBar } from "@material-ui/core";
 import React from "react";
-import Main from "./components/mainPage/main";
-import Appbar from "./components/public/Appbar/AppBar";
-import Footer from "./components/public/footer/footer";
+import Main from "./components/infoPage/info";
+import { Route } from "react-router-dom";
+import Foodrecipe from "./components/recipePage/Foodrecipe";
 
 class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Main />
+        <Route exact path="/" component={Main} />
+        <Route path="/recipe" component={Foodrecipe} />
       </React.Fragment>
     );
   }

@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
+    paddingTop: theme.spacing(10),  
     padding: theme.spacing(6)
   },
   search: {

@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import Appbar from "../public/Appbar/AppBar";
 import Footer from "../public/footer/footer";
+import { recipe, process, info } from "../../lib/api";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    paddingTop: '12rem',
+    paddingTop: "12rem",
     padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
@@ -87,8 +88,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-class main extends React.Component {
+class Foodinfo extends React.Component {
+  state = {
+    img: [],
+    name: [],
+    summary: [],
+    number: ""
+  };
+
+  handleChange = (e) => {
+    console.log(e.target.value)
+  }
+
+  async componentDidMount() {
+    const _data = await info();
+    this.setState({
+      img: _data.data.img,
+      name: _data.data.name,
+      summary: _data.data.smry,
+    });
+  }
+
   render() {
+    const img = this.state.img;
+    const name = this.state.name;
+    const smry = this.state.summary;
+
+    console.log(img);
+
     const classes = this.props;
     const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     return (
@@ -96,7 +123,6 @@ class main extends React.Component {
         <CssBaseline />
         <Appbar />
         <main>
-          {/* Hero unit */}
           <div className={classes.heroContent}>
             <Container maxWidth="sm">
               <Typography
@@ -117,44 +143,35 @@ class main extends React.Component {
               >
                 choose one recipe
               </Typography>
-              {/* <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center">
-                  <Grid item>
-                    <Button variant="contained" color="primary">
-                      Main call to action
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="primary">
-                      Secondary action
-                    </Button>
-                  </Grid>
-                </Grid>
-              </div> */}
             </Container>
           </div>
           <Container className={classes.cardGrid} maxWidth="md">
-            {/* End hero unit */}
             <Grid container spacing={4}>
-              {cards.map((card) => (
+              {cards.map((card, i) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
                     <CardMedia
                       className={classes.cardMedia}
-                      image="https://source.unsplash.com/random"
+                      component="img"
+                      alt="recipe img"
+                      height="140"
+                      image={img[i]}
                       title="Image title"
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        Heading
+                        {name[i]}
                       </Typography>
-                      <Typography>
-                        This is a media card. You can use this section to
-                        describe the content.
-                      </Typography>
+                      <Typography>{smry[i]}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="small" color="primary">
+                      <Button
+                        type = "button"
+                        href="/recipe"
+                        size="small"
+                        color="primary"
+                        onChange = {(e) => this.handleChange(e)}
+                      >
                         Show
                       </Button>
                       <Button size="small" color="primary">
@@ -172,4 +189,4 @@ class main extends React.Component {
     );
   }
 }
-export default main;
+export default Foodinfo;
