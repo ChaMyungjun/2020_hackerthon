@@ -35,6 +35,8 @@ api.get("/info", async (ctx) => {
     info.sensitive_imge[keys] = items[keys].DET_URL;
   }
 
+  console.log(info)
+
   ctx.body = info;
   return info;
 });

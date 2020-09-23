@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import Appbar from "../public/Appbar/AppBar";
 import Footer from "../public/footer/footer";
+import {recipe} from '../../lib/api'
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -88,6 +89,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 class main extends React.Component {
+  
+  async componentDidMount() {
+    const data = await recipe()
+    console.log(data)
+  }
+
   render() {
     const classes = this.props;
     const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
